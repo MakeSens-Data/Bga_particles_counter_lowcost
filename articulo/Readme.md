@@ -8,3 +8,4 @@ La data de referencia corresponde a la red de monitoreo del area metropolitana d
 ### Directorios y archivos
 Este repositorio contiene un directorio llamado **Data**, que contiene la data descrita anteriormente. Adicional contiene los siguientes archivos:
 - **rervice.py:** Cuenta con todas las funciones que son utilizadas para el procesamiento de los datos y la implementación de los diferentes modelos de calibración
+- **analisis.ipynb:** contiene todo el análisis necesario para el articulo
