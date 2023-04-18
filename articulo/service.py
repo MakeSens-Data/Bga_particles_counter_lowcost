@@ -218,6 +218,7 @@ def random_forest_calibration(data_x, data_y, n_estimators=800, test_size=0.5, r
         'NRMSE': nrmse(y_test, predictions),
         'accuracy': accuracy
     }
+    print(rf.criterion, rf.feature_importances_, rf.get_params, rf.n_features_)
 
     return rf.predict(data_x) ,results
 
