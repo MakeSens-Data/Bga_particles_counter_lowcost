@@ -208,7 +208,10 @@ def random_forest_calibration(data_x, data_y, n_estimators=800, test_size=0.5, r
     errors = abs(predictions - y_test)
     mape = 100 * abs(errors / y_test)
     rmse = np.sqrt(mean_squared_error(y_test, predictions))
-    accuracy = 100 - np.mean(mape)
+    temporal = list(mape)
+    for i in range(temporal.count(np.inf)):
+        temporal.remove(np.inf)
+    accuracy = 100 - np.mean(temporal)
 
     # Almacenar las métricas de evaluación en un diccionario
     results = {
@@ -216,7 +219,7 @@ def random_forest_calibration(data_x, data_y, n_estimators=800, test_size=0.5, r
         'r2_score': r2_score(predictions, y_test),
         'correlation': np.corrcoef(predictions, y_test)[0][1],
         'NRMSE': nrmse(y_test, predictions),
-        'accuracy': accuracy
+        'accuracy': accuracy,
     }
     print(rf.criterion, rf.feature_importances_, rf.get_params, rf.n_features_)
 
